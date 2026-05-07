@@ -622,10 +622,6 @@ struct LlvmCodeGenerator::Impl
         // Словарь для case-блоков
         std::unordered_map<std::int64_t, llvm::BasicBlock *> case_blocks;
 
-        // Проходим по всем case и default
-        llvm::BasicBlock *current_case_bb = nullptr;
-        llvm::BasicBlock *next_case_bb = nullptr;
-
         for (size_t i = 0; i < stmt.cases.size(); ++i)
         {
             auto *case_stmt = stmt.cases[i].get();

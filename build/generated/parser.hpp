@@ -32,7 +32,7 @@
 
 
 /**
- ** \file /mnt/d/Files/University/3_course/compiler/build/generated/parser.hpp
+ ** \file /mnt/c/Code/bb/The-mini-compiler/build/generated/parser.hpp
  ** Define the yy::parser class.
  */
 
@@ -42,10 +42,10 @@
 // especially those whose name start with YY_ or yy_.  They are
 // private implementation details that can be changed or removed.
 
-#ifndef YY_YY_MNT_D_FILES_UNIVERSITY_3_COURSE_COMPILER_BUILD_GENERATED_PARSER_HPP_INCLUDED
-# define YY_YY_MNT_D_FILES_UNIVERSITY_3_COURSE_COMPILER_BUILD_GENERATED_PARSER_HPP_INCLUDED
+#ifndef YY_YY_MNT_C_CODE_BB_THE_MINI_COMPILER_BUILD_GENERATED_PARSER_HPP_INCLUDED
+# define YY_YY_MNT_C_CODE_BB_THE_MINI_COMPILER_BUILD_GENERATED_PARSER_HPP_INCLUDED
 // "%code requires" blocks.
-#line 14 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 14 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
 
     #include <memory>
     #include <string>
@@ -53,7 +53,7 @@
     #include "ast.hpp"
     class Driver;
 
-#line 57 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.hpp"
+#line 57 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.hpp"
 
 
 # include <cstdlib> // std::abort
@@ -187,9 +187,9 @@
 # define YYDEBUG 0
 #endif
 
-#line 7 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 7 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
 namespace yy {
-#line 193 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.hpp"
+#line 193 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.hpp"
 
 
 
@@ -2693,11 +2693,11 @@ switch (yykind)
   }
 
 
-#line 7 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 7 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
 } // yy
-#line 2699 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.hpp"
+#line 2699 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.hpp"
 
 
 
 
-#endif // !YY_YY_MNT_D_FILES_UNIVERSITY_3_COURSE_COMPILER_BUILD_GENERATED_PARSER_HPP_INCLUDED
+#endif // !YY_YY_MNT_C_CODE_BB_THE_MINI_COMPILER_BUILD_GENERATED_PARSER_HPP_INCLUDED

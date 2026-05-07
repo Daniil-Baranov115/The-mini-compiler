@@ -1,11 +1,8 @@
-// tests/test_factorial.txt
-// Вычисление факториала с помощью цикла for (как while)
-
 func compiled_fn(arg int) int {
     var n int = arg
     var result int = 1
-    
     var i int = 1
+    
     for i <= n {
         result = result * i
         i = i + 1

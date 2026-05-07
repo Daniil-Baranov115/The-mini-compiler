@@ -1,6 +1,3 @@
-// tests/test_switch.txt
-// Тест для проверки switch/case
-
 func compiled_fn(arg int) int {
     var result int = 0
     
