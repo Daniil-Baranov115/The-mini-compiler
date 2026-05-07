@@ -42,14 +42,14 @@
 
 
 // Unqualified %code blocks.
-#line 24 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 24 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
 
     #include "driver.hpp"
     static yy::Parser::symbol_type yylex(Driver& driver) {
         return driver.next_token();
     }
 
-#line 53 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 53 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
 
 
 #ifndef YY_
@@ -121,9 +121,9 @@
 #define YYERROR         goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 7 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 7 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
 namespace yy {
-#line 127 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 127 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
 
   /// Build a parser object.
   Parser::Parser (Driver& driver_yyarg)
@@ -893,32 +893,32 @@ namespace yy {
           switch (yyn)
             {
   case 2: // program: functions
-#line 118 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 118 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         auto prog = std::make_unique<Program>();
         prog->functions = std::move(YY_MOVE (yystack_[0].value.as < FunctionList > ()));
         driver.set_program(std::move(prog));
     }
-#line 903 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 903 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 3: // functions: %empty
-#line 126 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 126 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
            { yylhs.value.as < FunctionList > () = FunctionList{}; }
-#line 909 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 909 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 4: // functions: functions function
-#line 128 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 128 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < FunctionList > () = std::move(YY_MOVE (yystack_[1].value.as < FunctionList > ()));
         yylhs.value.as < FunctionList > ().push_back(std::move(YY_MOVE (yystack_[0].value.as < std::unique_ptr<FunctionDecl> > ())));
     }
-#line 918 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 918 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 5: // function: "func" IDENTIFIER "(" parameter_list ")" block
-#line 136 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 136 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         auto fn = std::make_unique<FunctionDecl>();
         fn->name = std::move(YY_MOVE (yystack_[4].value.as < std::string > ()));
@@ -926,536 +926,536 @@ namespace yy {
         fn->body = std::move(YY_MOVE (yystack_[0].value.as < std::unique_ptr<BlockStmt> > ()));
         yylhs.value.as < std::unique_ptr<FunctionDecl> > () = std::move(fn);
     }
-#line 930 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 930 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 6: // parameter_list: %empty
-#line 146 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 146 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
            { yylhs.value.as < ParameterList > () = ParameterList{}; }
-#line 936 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 936 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 7: // parameter_list: parameters
-#line 147 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 147 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
                  { yylhs.value.as < ParameterList > () = std::move(YY_MOVE (yystack_[0].value.as < ParameterList > ())); }
-#line 942 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 942 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 8: // parameters: IDENTIFIER type
-#line 152 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 152 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ParameterList > () = ParameterList{};
         yylhs.value.as < ParameterList > ().push_back({std::move(YY_MOVE (yystack_[1].value.as < std::string > ())), YY_MOVE (yystack_[0].value.as < TypeSpec > ())});
     }
-#line 951 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 951 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 9: // parameters: parameters "," IDENTIFIER type
-#line 157 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 157 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ParameterList > () = std::move(YY_MOVE (yystack_[3].value.as < ParameterList > ()));
         yylhs.value.as < ParameterList > ().push_back({std::move(YY_MOVE (yystack_[1].value.as < std::string > ())), YY_MOVE (yystack_[0].value.as < TypeSpec > ())});
     }
-#line 960 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 960 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 10: // type: "int"
-#line 164 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 164 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
                { yylhs.value.as < TypeSpec > () = TypeSpec::Int; }
-#line 966 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 966 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 11: // type: "float"
-#line 165 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 165 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
                  { yylhs.value.as < TypeSpec > () = TypeSpec::Float; }
-#line 972 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 972 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 12: // type: "bool"
-#line 166 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 166 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
                  { yylhs.value.as < TypeSpec > () = TypeSpec::Bool; }
-#line 978 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 978 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 13: // block: "{" statements "}"
-#line 171 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 171 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         auto b = std::make_unique<BlockStmt>();
         b->statements = std::move(YY_MOVE (yystack_[1].value.as < StmtList > ()));
         yylhs.value.as < std::unique_ptr<BlockStmt> > () = std::move(b);
     }
-#line 988 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 988 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 14: // statements: %empty
-#line 179 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 179 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
            { yylhs.value.as < StmtList > () = StmtList{}; }
-#line 994 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 994 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 15: // statements: statements statement
-#line 181 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 181 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtList > () = std::move(YY_MOVE (yystack_[1].value.as < StmtList > ()));
         yylhs.value.as < StmtList > ().push_back(std::move(YY_MOVE (yystack_[0].value.as < StmtPtr > ())));
     }
-#line 1003 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1003 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 16: // statement: declaration
-#line 188 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 188 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < StmtPtr > () = YY_MOVE (yystack_[0].value.as < StmtPtr > ()); }
-#line 1009 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1009 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 17: // statement: expression
-#line 190 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 190 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtPtr > () = std::make_unique<ExprStmt>(std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1017 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1017 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 18: // statement: "return" expression
-#line 194 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 194 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtPtr > () = std::make_unique<ReturnStmt>(std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1025 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1025 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 19: // statement: "if" expression block
-#line 198 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 198 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtPtr > () = std::make_unique<IfStmt>(std::move(YY_MOVE (yystack_[1].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < std::unique_ptr<BlockStmt> > ())));
     }
-#line 1033 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1033 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 20: // statement: "if" expression block "else" block
-#line 202 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 202 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtPtr > () = std::make_unique<IfStmt>(std::move(YY_MOVE (yystack_[3].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[2].value.as < std::unique_ptr<BlockStmt> > ())), std::move(YY_MOVE (yystack_[0].value.as < std::unique_ptr<BlockStmt> > ())));
     }
-#line 1041 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1041 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 21: // statement: "for" expression block
-#line 206 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 206 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtPtr > () = std::make_unique<WhileStmt>(std::move(YY_MOVE (yystack_[1].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < std::unique_ptr<BlockStmt> > ())));
     }
-#line 1049 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1049 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 22: // statement: "for" block
-#line 210 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 210 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         auto always_true = std::make_unique<BoolLiteralExpr>(true);
         yylhs.value.as < StmtPtr > () = std::make_unique<WhileStmt>(std::move(always_true), std::move(YY_MOVE (yystack_[0].value.as < std::unique_ptr<BlockStmt> > ())));
     }
-#line 1058 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1058 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 23: // statement: "break"
-#line 214 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 214 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
             { yylhs.value.as < StmtPtr > () = std::make_unique<BreakStmt>(); }
-#line 1064 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1064 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 24: // statement: "continue"
-#line 215 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 215 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
                { yylhs.value.as < StmtPtr > () = std::make_unique<ContinueStmt>(); }
-#line 1070 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1070 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 25: // statement: "switch" expression "{" switch_cases "}"
-#line 217 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 217 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtPtr > () = std::make_unique<SwitchStmt>(std::move(YY_MOVE (yystack_[3].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[1].value.as < StmtList > ())));
     }
-#line 1078 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1078 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 27: // switch_cases: %empty
-#line 224 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 224 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
            { yylhs.value.as < StmtList > () = StmtList{}; }
-#line 1084 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1084 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 28: // switch_cases: switch_cases switch_case
-#line 226 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 226 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtList > () = std::move(YY_MOVE (yystack_[1].value.as < StmtList > ()));
         yylhs.value.as < StmtList > ().push_back(std::move(YY_MOVE (yystack_[0].value.as < std::unique_ptr<CaseClause> > ())));
     }
-#line 1093 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1093 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 29: // switch_cases: switch_cases switch_default
-#line 231 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 231 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtList > () = std::move(YY_MOVE (yystack_[1].value.as < StmtList > ()));
         yylhs.value.as < StmtList > ().push_back(std::move(YY_MOVE (yystack_[0].value.as < std::unique_ptr<DefaultClause> > ())));
     }
-#line 1102 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1102 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 30: // switch_case: "case" expression ":" statements
-#line 239 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 239 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         auto case_clause = std::make_unique<CaseClause>();
         case_clause->value = std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ()));
         case_clause->statements = std::move(YY_MOVE (yystack_[0].value.as < StmtList > ()));
         yylhs.value.as < std::unique_ptr<CaseClause> > () = std::move(case_clause);
     }
-#line 1113 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1113 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 31: // switch_default: "default" ":" statements
-#line 249 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 249 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         auto default_clause = std::make_unique<DefaultClause>();
         default_clause->statements = std::move(YY_MOVE (yystack_[0].value.as < StmtList > ()));
         yylhs.value.as < std::unique_ptr<DefaultClause> > () = std::move(default_clause);
     }
-#line 1123 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1123 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 32: // declaration: "var" IDENTIFIER type "=" expression
-#line 258 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 258 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtPtr > () = std::make_unique<VarDeclStmt>(std::move(YY_MOVE (yystack_[3].value.as < std::string > ())), YY_MOVE (yystack_[2].value.as < TypeSpec > ()), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1131 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1131 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 33: // declaration: IDENTIFIER ":=" expression
-#line 262 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 262 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < StmtPtr > () = std::make_unique<VarDeclStmt>(std::move(YY_MOVE (yystack_[2].value.as < std::string > ())), TypeSpec::Auto, std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1139 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1139 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 34: // expression: logical_or_expr
-#line 268 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 268 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < ExprPtr > () = YY_MOVE (yystack_[0].value.as < ExprPtr > ()); }
-#line 1145 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1145 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 35: // logical_or_expr: logical_and_expr
-#line 272 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 272 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < ExprPtr > () = YY_MOVE (yystack_[0].value.as < ExprPtr > ()); }
-#line 1151 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1151 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 36: // logical_or_expr: logical_or_expr "||" logical_and_expr
-#line 274 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 274 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::LogicalOr, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1159 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1159 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 37: // logical_and_expr: equality_expr
-#line 280 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 280 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < ExprPtr > () = YY_MOVE (yystack_[0].value.as < ExprPtr > ()); }
-#line 1165 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1165 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 38: // logical_and_expr: logical_and_expr "&&" equality_expr
-#line 282 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 282 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::LogicalAnd, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1173 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1173 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 39: // equality_expr: relational_expr
-#line 288 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 288 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < ExprPtr > () = YY_MOVE (yystack_[0].value.as < ExprPtr > ()); }
-#line 1179 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1179 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 40: // equality_expr: equality_expr "==" relational_expr
-#line 290 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 290 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::Equal, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1187 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1187 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 41: // equality_expr: equality_expr "!=" relational_expr
-#line 294 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 294 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::NotEqual, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1195 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1195 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 42: // relational_expr: additive_expr
-#line 300 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 300 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < ExprPtr > () = YY_MOVE (yystack_[0].value.as < ExprPtr > ()); }
-#line 1201 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1201 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 43: // relational_expr: relational_expr "<" additive_expr
-#line 302 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 302 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::Less, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1209 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1209 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 44: // relational_expr: relational_expr "<=" additive_expr
-#line 306 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 306 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::LessEqual, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1217 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1217 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 45: // relational_expr: relational_expr ">" additive_expr
-#line 310 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 310 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::Greater, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1225 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1225 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 46: // relational_expr: relational_expr ">=" additive_expr
-#line 314 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 314 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::GreaterEqual, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1233 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1233 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 47: // additive_expr: multiplicative_expr
-#line 320 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 320 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < ExprPtr > () = YY_MOVE (yystack_[0].value.as < ExprPtr > ()); }
-#line 1239 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1239 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 48: // additive_expr: additive_expr "+" multiplicative_expr
-#line 322 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 322 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::Add, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1247 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1247 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 49: // additive_expr: additive_expr "-" multiplicative_expr
-#line 326 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 326 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::Sub, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1255 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1255 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 50: // multiplicative_expr: unary_expr
-#line 332 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 332 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < ExprPtr > () = YY_MOVE (yystack_[0].value.as < ExprPtr > ()); }
-#line 1261 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1261 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 51: // multiplicative_expr: multiplicative_expr "*" unary_expr
-#line 334 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 334 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::Mul, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1269 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1269 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 52: // multiplicative_expr: multiplicative_expr "/" unary_expr
-#line 338 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 338 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::Div, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1277 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1277 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 53: // multiplicative_expr: multiplicative_expr "%" unary_expr
-#line 342 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 342 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BinaryExpr>(BinaryOp::Mod, std::move(YY_MOVE (yystack_[2].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1285 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1285 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 54: // unary_expr: postfix_expr
-#line 348 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 348 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < ExprPtr > () = YY_MOVE (yystack_[0].value.as < ExprPtr > ()); }
-#line 1291 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1291 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 55: // unary_expr: "!" unary_expr
-#line 350 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 350 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<UnaryExpr>(UnaryOp::LogicalNot, std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1299 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1299 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 56: // unary_expr: "-" unary_expr
-#line 354 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 354 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<UnaryExpr>(UnaryOp::Negate, std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1307 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1307 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 57: // unary_expr: "&" unary_expr
-#line 358 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 358 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<UnaryExpr>(UnaryOp::AddressOf, std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1315 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1315 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 58: // unary_expr: "*" unary_expr
-#line 362 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 362 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<UnaryExpr>(UnaryOp::Dereference, std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1323 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1323 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 59: // unary_expr: "++" unary_expr
-#line 366 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 366 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<PreIncDecExpr>(IncDecOp::Increment, std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1331 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1331 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 60: // unary_expr: "--" unary_expr
-#line 370 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 370 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<PreIncDecExpr>(IncDecOp::Decrement, std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1339 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1339 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 61: // postfix_expr: primary_expr
-#line 376 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 376 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     { yylhs.value.as < ExprPtr > () = YY_MOVE (yystack_[0].value.as < ExprPtr > ()); }
-#line 1345 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1345 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 62: // postfix_expr: postfix_expr "++"
-#line 378 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 378 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<PostIncDecExpr>(IncDecOp::Increment, std::move(YY_MOVE (yystack_[1].value.as < ExprPtr > ())));
     }
-#line 1353 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1353 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 63: // postfix_expr: postfix_expr "--"
-#line 382 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 382 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<PostIncDecExpr>(IncDecOp::Decrement, std::move(YY_MOVE (yystack_[1].value.as < ExprPtr > ())));
     }
-#line 1361 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1361 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 64: // postfix_expr: postfix_expr "(" argument_list ")"
-#line 386 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 386 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<CallExpr>(std::move(YY_MOVE (yystack_[3].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[1].value.as < ExprList > ())));
     }
-#line 1369 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1369 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 65: // postfix_expr: postfix_expr "[" expression "]"
-#line 390 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 390 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<IndexExpr>(std::move(YY_MOVE (yystack_[3].value.as < ExprPtr > ())), std::move(YY_MOVE (yystack_[1].value.as < ExprPtr > ())));
     }
-#line 1377 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1377 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 66: // primary_expr: INT_LITERAL
-#line 397 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 397 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<IntegerLiteralExpr>(YY_MOVE (yystack_[0].value.as < std::int64_t > ()));
     }
-#line 1385 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1385 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 67: // primary_expr: FLOAT_LITERAL
-#line 401 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 401 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<FloatLiteralExpr>(YY_MOVE (yystack_[0].value.as < double > ()));
     }
-#line 1393 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1393 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 68: // primary_expr: BOOL_LITERAL
-#line 405 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 405 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<BoolLiteralExpr>(YY_MOVE (yystack_[0].value.as < bool > ()));
     }
-#line 1401 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1401 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 69: // primary_expr: STRING_LITERAL
-#line 409 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 409 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<StringLiteralExpr>(std::move(YY_MOVE (yystack_[0].value.as < std::string > ())));
     }
-#line 1409 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1409 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 70: // primary_expr: IDENTIFIER
-#line 413 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 413 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::make_unique<IdentifierExpr>(std::move(YY_MOVE (yystack_[0].value.as < std::string > ())));
     }
-#line 1417 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1417 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 71: // primary_expr: "(" expression ")"
-#line 417 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 417 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprPtr > () = std::move(YY_MOVE (yystack_[1].value.as < ExprPtr > ()));
     }
-#line 1425 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1425 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 72: // argument_list: %empty
-#line 423 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 423 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
            { yylhs.value.as < ExprList > () = ExprList{}; }
-#line 1431 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1431 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 73: // argument_list: arguments
-#line 424 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 424 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
                 { yylhs.value.as < ExprList > () = std::move(YY_MOVE (yystack_[0].value.as < ExprList > ())); }
-#line 1437 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1437 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 74: // arguments: expression
-#line 429 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 429 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprList > () = ExprList{};
         yylhs.value.as < ExprList > ().push_back(std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1446 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1446 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
   case 75: // arguments: arguments "," expression
-#line 434 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 434 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
     {
         yylhs.value.as < ExprList > () = std::move(YY_MOVE (yystack_[2].value.as < ExprList > ()));
         yylhs.value.as < ExprList > ().push_back(std::move(YY_MOVE (yystack_[0].value.as < ExprPtr > ())));
     }
-#line 1455 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1455 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
     break;
 
 
-#line 1459 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1459 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
 
             default:
               break;
@@ -1976,11 +1976,11 @@ namespace yy {
 #endif // YYDEBUG
 
 
-#line 7 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 7 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
 } // yy
-#line 1982 "/mnt/d/Files/University/3_course/compiler/build/generated/parser.cpp"
+#line 1982 "/mnt/c/Code/bb/The-mini-compiler/build/generated/parser.cpp"
 
-#line 440 "/mnt/d/Files/University/3_course/compiler/src/parser.y"
+#line 440 "/mnt/c/Code/bb/The-mini-compiler/src/parser.y"
 
 
 void yy::Parser::error(const std::string& message) {

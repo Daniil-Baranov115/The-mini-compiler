@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/d/Files/University/3_course/compiler
+# Install script for directory: /mnt/c/Code/bb/The-mini-compiler
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/d/Files/University/3_course/compiler/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/Code/bb/The-mini-compiler/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

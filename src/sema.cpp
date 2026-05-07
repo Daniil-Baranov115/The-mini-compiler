@@ -256,7 +256,7 @@ void SemanticAnalyzer::analyze_statement(Stmt &stmt)
     {
         if (return_stmt->expr)
         {
-            TypeSpec ret_type = analyze_expression(*return_stmt->expr);
+            analyze_expression(*return_stmt->expr);
             // В compiled_fn возвращаемый тип должен быть Int
             // (проверяем по контексту, но для простоты считаем Int)
         }
@@ -485,28 +485,28 @@ void SemanticAnalyzer::analyze_switch(SwitchStmt &stmt)
 TypeSpec SemanticAnalyzer::analyze_expression(Expr &expr)
 {
     // Литералы
-    if (auto *int_lit = dynamic_cast<IntegerLiteralExpr *>(&expr))
+    if (dynamic_cast<IntegerLiteralExpr *>(&expr))
     {
         expr.type = TypeSpec::Int;
         expr.is_lvalue = false;
         return TypeSpec::Int;
     }
 
-    if (auto *float_lit = dynamic_cast<FloatLiteralExpr *>(&expr))
+    if (dynamic_cast<FloatLiteralExpr *>(&expr))
     {
         expr.type = TypeSpec::Float;
         expr.is_lvalue = false;
         return TypeSpec::Float;
     }
 
-    if (auto *bool_lit = dynamic_cast<BoolLiteralExpr *>(&expr))
+    if (dynamic_cast<BoolLiteralExpr *>(&expr))
     {
         expr.type = TypeSpec::Bool;
         expr.is_lvalue = false;
         return TypeSpec::Bool;
     }
 
-    if (auto *str_lit = dynamic_cast<StringLiteralExpr *>(&expr))
+    if (dynamic_cast<StringLiteralExpr *>(&expr))
     {
         expr.type = TypeSpec::Void; // строки не поддерживаем для вычислений
         expr.is_lvalue = false;

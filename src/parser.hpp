@@ -390,6 +390,7 @@ namespace yy {
       char dummy1[sizeof (ExprList)];
 
       // expression
+      // assignment_expr
       // logical_or_expr
       // logical_and_expr
       // equality_expr
@@ -416,6 +417,7 @@ namespace yy {
       // declaration
       char dummy6[sizeof (StmtPtr)];
 
+      // return_type_opt
       // type
       char dummy7[sizeof (TypeSpec)];
 
@@ -616,28 +618,30 @@ namespace yy {
         S_program = 55,                          // program
         S_functions = 56,                        // functions
         S_function = 57,                         // function
-        S_parameter_list = 58,                   // parameter_list
-        S_parameters = 59,                       // parameters
-        S_type = 60,                             // type
-        S_block = 61,                            // block
-        S_statements = 62,                       // statements
-        S_statement = 63,                        // statement
-        S_switch_cases = 64,                     // switch_cases
-        S_switch_case = 65,                      // switch_case
-        S_switch_default = 66,                   // switch_default
-        S_declaration = 67,                      // declaration
-        S_expression = 68,                       // expression
-        S_logical_or_expr = 69,                  // logical_or_expr
-        S_logical_and_expr = 70,                 // logical_and_expr
-        S_equality_expr = 71,                    // equality_expr
-        S_relational_expr = 72,                  // relational_expr
-        S_additive_expr = 73,                    // additive_expr
-        S_multiplicative_expr = 74,              // multiplicative_expr
-        S_unary_expr = 75,                       // unary_expr
-        S_postfix_expr = 76,                     // postfix_expr
-        S_primary_expr = 77,                     // primary_expr
-        S_argument_list = 78,                    // argument_list
-        S_arguments = 79                         // arguments
+        S_return_type_opt = 58,                  // return_type_opt
+        S_parameter_list = 59,                   // parameter_list
+        S_parameters = 60,                       // parameters
+        S_type = 61,                             // type
+        S_block = 62,                            // block
+        S_statements = 63,                       // statements
+        S_statement = 64,                        // statement
+        S_switch_cases = 65,                     // switch_cases
+        S_switch_case = 66,                      // switch_case
+        S_switch_default = 67,                   // switch_default
+        S_declaration = 68,                      // declaration
+        S_expression = 69,                       // expression
+        S_assignment_expr = 70,                  // assignment_expr
+        S_logical_or_expr = 71,                  // logical_or_expr
+        S_logical_and_expr = 72,                 // logical_and_expr
+        S_equality_expr = 73,                    // equality_expr
+        S_relational_expr = 74,                  // relational_expr
+        S_additive_expr = 75,                    // additive_expr
+        S_multiplicative_expr = 76,              // multiplicative_expr
+        S_unary_expr = 77,                       // unary_expr
+        S_postfix_expr = 78,                     // postfix_expr
+        S_primary_expr = 79,                     // primary_expr
+        S_argument_list = 80,                    // argument_list
+        S_arguments = 81                         // arguments
       };
     };
 
@@ -678,6 +682,7 @@ namespace yy {
         break;
 
       case symbol_kind::S_expression: // expression
+      case symbol_kind::S_assignment_expr: // assignment_expr
       case symbol_kind::S_logical_or_expr: // logical_or_expr
       case symbol_kind::S_logical_and_expr: // logical_and_expr
       case symbol_kind::S_equality_expr: // equality_expr
@@ -709,6 +714,7 @@ namespace yy {
         value.move< StmtPtr > (std::move (that.value));
         break;
 
+      case symbol_kind::S_return_type_opt: // return_type_opt
       case symbol_kind::S_type: // type
         value.move< TypeSpec > (std::move (that.value));
         break;
@@ -993,6 +999,7 @@ switch (yykind)
         break;
 
       case symbol_kind::S_expression: // expression
+      case symbol_kind::S_assignment_expr: // assignment_expr
       case symbol_kind::S_logical_or_expr: // logical_or_expr
       case symbol_kind::S_logical_and_expr: // logical_and_expr
       case symbol_kind::S_equality_expr: // equality_expr
@@ -1024,6 +1031,7 @@ switch (yykind)
         value.template destroy< StmtPtr > ();
         break;
 
+      case symbol_kind::S_return_type_opt: // return_type_opt
       case symbol_kind::S_type: // type
         value.template destroy< TypeSpec > ();
         break;
@@ -2121,14 +2129,14 @@ switch (yykind)
     static const signed char yypgoto_[];
 
     // YYDEFGOTO[NTERM-NUM].
-    static const signed char yydefgoto_[];
+    static const unsigned char yydefgoto_[];
 
     // YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
     // positive, shift that token.  If negative, reduce the rule whose
     // number is the opposite.  If YYTABLE_NINF, syntax error.
     static const unsigned char yytable_[];
 
-    static const signed char yycheck_[];
+    static const short yycheck_[];
 
     // YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
     // state STATE-NUM.
@@ -2370,8 +2378,8 @@ switch (yykind)
     /// Constants.
     enum
     {
-      yylast_ = 208,     ///< Last index in yytable_.
-      yynnts_ = 26,  ///< Number of nonterminal symbols.
+      yylast_ = 225,     ///< Last index in yytable_.
+      yynnts_ = 28,  ///< Number of nonterminal symbols.
       yyfinal_ = 3 ///< Termination state number.
     };
 
@@ -2448,6 +2456,7 @@ switch (yykind)
         break;
 
       case symbol_kind::S_expression: // expression
+      case symbol_kind::S_assignment_expr: // assignment_expr
       case symbol_kind::S_logical_or_expr: // logical_or_expr
       case symbol_kind::S_logical_and_expr: // logical_and_expr
       case symbol_kind::S_equality_expr: // equality_expr
@@ -2479,6 +2488,7 @@ switch (yykind)
         value.copy< StmtPtr > (YY_MOVE (that.value));
         break;
 
+      case symbol_kind::S_return_type_opt: // return_type_opt
       case symbol_kind::S_type: // type
         value.copy< TypeSpec > (YY_MOVE (that.value));
         break;
@@ -2557,6 +2567,7 @@ switch (yykind)
         break;
 
       case symbol_kind::S_expression: // expression
+      case symbol_kind::S_assignment_expr: // assignment_expr
       case symbol_kind::S_logical_or_expr: // logical_or_expr
       case symbol_kind::S_logical_and_expr: // logical_and_expr
       case symbol_kind::S_equality_expr: // equality_expr
@@ -2588,6 +2599,7 @@ switch (yykind)
         value.move< StmtPtr > (YY_MOVE (s.value));
         break;
 
+      case symbol_kind::S_return_type_opt: // return_type_opt
       case symbol_kind::S_type: // type
         value.move< TypeSpec > (YY_MOVE (s.value));
         break;
@@ -2695,7 +2707,7 @@ switch (yykind)
 
 #line 7 "src/parser.y"
 } // yy
-#line 2699 "src/parser.hpp"
+#line 2711 "src/parser.hpp"
 
 
 

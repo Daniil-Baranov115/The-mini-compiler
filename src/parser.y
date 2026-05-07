@@ -100,6 +100,7 @@
 %type <std::unique_ptr<Program>> program
 %type <FunctionList> functions
 %type <std::unique_ptr<FunctionDecl>> function
+%type <TypeSpec> return_type_opt
 %type <ParameterList> parameters parameter_list
 %type <std::unique_ptr<BlockStmt>> block
 %type <StmtList> statements
@@ -107,7 +108,7 @@
 %type <StmtList> switch_cases
 %type <std::unique_ptr<CaseClause>> switch_case
 %type <std::unique_ptr<DefaultClause>> switch_default
-%type <ExprPtr> expression logical_or_expr logical_and_expr equality_expr relational_expr additive_expr multiplicative_expr unary_expr postfix_expr primary_expr
+%type <ExprPtr> expression assignment_expr logical_or_expr logical_and_expr equality_expr relational_expr additive_expr multiplicative_expr unary_expr postfix_expr primary_expr
 %type <ExprList> arguments argument_list
 %type <TypeSpec> type
 
@@ -132,14 +133,19 @@ functions:
     ;
 
 function:
-    FUNC IDENTIFIER LPAREN parameter_list RPAREN block
+    FUNC IDENTIFIER LPAREN parameter_list RPAREN return_type_opt block
     {
         auto fn = std::make_unique<FunctionDecl>();
         fn->name = std::move($2);
         fn->parameters = std::move($4);
-        fn->body = std::move($6);
+        fn->body = std::move($7);
         $$ = std::move(fn);
     }
+    ;
+
+return_type_opt:
+    %empty { $$ = TypeSpec::Void; }
+    | type { $$ = $1; }
     ;
 
 parameter_list:
@@ -265,7 +271,15 @@ declaration:
     ;
 
 expression:
+    assignment_expr
+    ;
+
+assignment_expr:
     logical_or_expr
+    | postfix_expr ASSIGN assignment_expr
+    {
+        $$ = std::make_unique<AssignExpr>(std::move($1), std::move($3));
+    }
     ;
 
 logical_or_expr:
