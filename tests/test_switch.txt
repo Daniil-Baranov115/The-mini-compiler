@@ -1,0 +1,19 @@
+// tests/test_switch.txt
+// Тест для проверки switch/case
+
+func compiled_fn(arg int) int {
+    var result int = 0
+    
+    switch arg {
+    case 1:
+        result = 10
+    case 2:
+        result = 20
+    case 3:
+        result = 30
+    default:
+        result = 0
+    }
+    
+    return result
+}

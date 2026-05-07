@@ -1,0 +1,14 @@
+// tests/test_sum_squares.txt
+// Сумма квадратов от 1 до arg
+
+func compiled_fn(arg int) int {
+    var sum int = 0
+    
+    var i int = 1
+    for i <= arg {
+        sum = sum + i * i
+        i = i + 1
+    }
+    
+    return sum
+}

@@ -1,0 +1,7 @@
+/mnt/d/Files/University/3_course/compiler/src/CMakeFiles/intrinsics_gen.dir
+/mnt/d/Files/University/3_course/compiler/src/CMakeFiles/omp_gen.dir
+/mnt/d/Files/University/3_course/compiler/src/CMakeFiles/acc_gen.dir
+/mnt/d/Files/University/3_course/compiler/src/CMakeFiles/RISCVTargetParserTableGen.dir
+/mnt/d/Files/University/3_course/compiler/src/CMakeFiles/mini_compiler.dir
+/mnt/d/Files/University/3_course/compiler/src/CMakeFiles/edit_cache.dir
+/mnt/d/Files/University/3_course/compiler/src/CMakeFiles/rebuild_cache.dir
