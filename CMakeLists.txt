@@ -1,6 +1,6 @@
 
 cmake_minimum_required(VERSION 3.16)
-project(mini_compiler CXX)
+project(mini_compiler LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

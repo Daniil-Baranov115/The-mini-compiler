@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/mini_compiler.dir/src/main.cpp.o CMakeFiles/mini_compiler.dir/src/driver.cpp.o CMakeFiles/mini_compiler.dir/src/ast.cpp.o CMakeFiles/mini_compiler.dir/src/sema.cpp.o CMakeFiles/mini_compiler.dir/src/llvm_codegen.cpp.o CMakeFiles/mini_compiler.dir/src/lexer.cpp.o CMakeFiles/mini_compiler.dir/src/parser.cpp.o -o mini_compiler 
